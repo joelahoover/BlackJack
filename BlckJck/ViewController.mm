@@ -41,56 +41,50 @@
     self.hitButton.enabled = false;
     self.holdButton.enabled = false;
     
-    //Rotate the duck flipper
-    [UIView animateWithDuration:1.1
-                          delay:0.0
+    //Rotate the duck flipper and move the card.
+    [UIView animateWithDuration:1.1f
+                          delay:0.0f
                         options:(UIViewAnimationCurveEaseInOut)
                      animations:^{
-                         [UIView setAnimationDelegate:self];
-                         
+                         //Rotates wing then places the top card in the middle of the screen
                          self.duckWing.transform = CGAffineTransformMakeRotation(M_PI/-2);
-                         //                         self.cardBack.alpha = 0;
+                         self.cardBack.center  = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
+                         
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1.5
-                                               delay:0.0
-                                             options:(UIViewAnimationCurveEaseInOut)
+                         //Return the duck wing to the original location and resize the back of the card view
+                         [UIView animateWithDuration:1.5f
                                           animations:^{
-                                              [UIView setAnimationDelegate:self];
                                               
-                                              self.duckWing.transform = CGAffineTransformMakeRotation(M_PI);
-                                              //                         self.cardBack.alpha = 0;
+                                              self.duckWing.transform = CGAffineTransformIdentity;
+                                              self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
+                                            
+                                              
                                           }
-                                           completion:nil];
+                          completion:^(BOOL finished) {
+                              //When the above is done reveral the front of the card. (The correct card image to load still needs to be done)
+                              
+                              self.cardFront.frame = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
+                              self.cardFront.alpha = 1;
+                              
+                              //Rerturning the cardBack view to the top of the deck.
+                              self.cardBack.frame = CGRectMake(138, 229, 25, 40);
+                              
+                              [UIView animateWithDuration:1.0 animations:^{
+                                  //Move the dealt card to your hand.
+                                  self.cardFront.frame = CGRectMake(25, 553, 50, 80);
+                                  
+                              }
+                               completion:^(BOOL finished) {
+                                   self.hitButton.enabled = true; //Allow further input
+                                   self.holdButton.enabled = true;
+                               }];
+                              
+                          }];
                           }
      
      ];
     
-    //Move card from the deck to the middle of the view
-    [UIView animateWithDuration:1.1
-                          delay:0.0
-                        options:(UIViewAnimationCurveEaseInOut)
-                     animations:^{
-                         [UIView setAnimationDelegate:self];
-                         
-                         self.cardBack.center  = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
-                         //                         self.cardBack.alpha = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1.0
-                                          animations:^{
-                                              NSLog(@"Please get here");
-                                              self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 25, self.view.bounds.size.height/2 - 40, 50, 80);
-                                          }];
-                     }
-     
-     ];
-
-    
-    
-    //Allow the buttons to be hit again. This is currently not working. Im still learning how the animation blocks work, but I think this likely has to be within a completion block.
-    self.hitButton.enabled = true;
-    self.holdButton.enabled = true;
 }
 
 - (IBAction)holdButton:(id)sender {
@@ -113,13 +107,13 @@
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
     [UIView animateWithDuration:1.0
                      animations:^{
-                         [self.winLoseImage setImage:image];
+                         [self.winLoseImage setImage:image]; //Assigning the correct image to the view
                          [self.view bringSubviewToFront:self.winLoseImage];
-                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25);
+                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1.0
-                                               delay:5.0 //This delay isnt working, but it is sending the view to the back, so idk.
+                         [UIView animateWithDuration:5.0
+                                               delay:0.0
                                              options:UIViewAnimationCurveEaseOut
                                           animations:^{
                                               [self.view sendSubviewToBack:self.winLoseImage];
