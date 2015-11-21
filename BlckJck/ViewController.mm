@@ -68,7 +68,7 @@
                               self.cardFront.alpha = 1;
                               
                               //Rerturning the cardBack view to the top of the deck.
-                              self.cardBack.frame = CGRectMake(138, 229, 25, 40);
+                              self.cardBack.frame = CGRectMake(138, 204, 25, 40);
                               
                               [UIView animateWithDuration:1.0 animations:^{
                                   //Move the dealt card to your hand.
@@ -105,15 +105,15 @@
     }
     
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:1.0f
                      animations:^{
                          [self.winLoseImage setImage:image]; //Assigning the correct image to the view
                          [self.view bringSubviewToFront:self.winLoseImage];
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:5.0
-                                               delay:0.0
+                         [UIView animateWithDuration:0.0f
+                                               delay:3.0f
                                              options:UIViewAnimationCurveEaseOut
                                           animations:^{
                                               [self.view sendSubviewToBack:self.winLoseImage];
