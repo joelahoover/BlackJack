@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6214" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6207"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,29 +12,86 @@
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 joelhoover. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Wj6-cY-xZg"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TUpDuck" translatesAutoresizingMaskIntoConstraints="NO" id="yVt-7a-AE1">
+                    <rect key="frame" x="120" y="120" width="240" height="294"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="4Up-SM-hVw"/>
+                        <constraint firstAttribute="width" constant="240" id="Qgv-aK-73M"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4Up-SM-hVw"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="120" y="149" width="240" height="265"/>
+                        <mask key="constraints">
+                            <include reference="4Up-SM-hVw"/>
+                            <exclude reference="Qgv-aK-73M"/>
+                        </mask>
+                    </variation>
+                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BlckJck" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
+                    <rect key="frame" x="20" y="54" width="441" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="drd-xo-mHv"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="20" y="86" width="441" height="43"/>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="yVt-7a-AE1" secondAttribute="bottom" constant="25" id="2gB-kZ-t5M"/>
+                <constraint firstItem="yVt-7a-AE1" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="77d-Gh-Lka"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="8J8-SY-eyH"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="kId-c2-rCX" secondAttribute="leading" id="9ZV-xG-Plf"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="yVt-7a-AE1" secondAttribute="bottom" constant="25" id="CLA-Iv-eiH"/>
+                <constraint firstItem="yVt-7a-AE1" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="23" id="FN8-Gm-acR"/>
+                <constraint firstItem="yVt-7a-AE1" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="Jpb-XM-BWa"/>
+                <constraint firstAttribute="centerY" secondItem="yVt-7a-AE1" secondAttribute="centerY" id="Xc6-js-nCK"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yyt-U7-ABe"/>
+                <constraint firstItem="yVt-7a-AE1" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="23" id="ixd-Zu-FV7"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="jT0-wi-nE5"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" id="u78-ab-pCC"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="uWQ-jm-jMA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="77d-Gh-Lka"/>
+                    <exclude reference="Xc6-js-nCK"/>
+                    <exclude reference="ixd-Zu-FV7"/>
+                    <exclude reference="CLA-Iv-eiH"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="77d-Gh-Lka"/>
+                    <exclude reference="FN8-Gm-acR"/>
+                    <exclude reference="Jpb-XM-BWa"/>
+                    <include reference="Xc6-js-nCK"/>
+                    <include reference="ixd-Zu-FV7"/>
+                    <exclude reference="2gB-kZ-t5M"/>
+                    <include reference="CLA-Iv-eiH"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="TUpDuck" width="884" height="1300"/>
+    </resources>
 </document>
