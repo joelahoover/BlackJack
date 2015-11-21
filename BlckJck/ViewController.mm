@@ -76,8 +76,9 @@
                      completion:^(BOOL finished) {
                          [UIView animateWithDuration:1.0
                                           animations:^{
-                             self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 25, self.view.bounds.size.height/2 - 40, 50, 80);
-                         }];
+                                              NSLog(@"Please get here");
+                                              self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 25, self.view.bounds.size.height/2 - 40, 50, 80);
+                                          }];
                      }
      
      ];
