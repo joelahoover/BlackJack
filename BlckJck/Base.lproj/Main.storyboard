@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-Ya-bOb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="282" width="240" height="128"/>
+                                </variation>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokerTable" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -107,16 +113,11 @@
                                     <rect key="frame" x="155" y="230" width="67" height="38"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-Ya-bOb">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="282" width="240" height="128"/>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="X0d-Ya-bOb"/>
                                 <exclude reference="SEn-jQ-eVH"/>
                                 <exclude reference="gPg-a5-jwc"/>
                                 <exclude reference="dmR-HA-1RO"/>
@@ -128,11 +129,11 @@
                                 <exclude reference="nef-rN-BYc"/>
                                 <exclude reference="njU-sO-IZP"/>
                                 <exclude reference="Ese-XR-OHT"/>
-                                <exclude reference="X0d-Ya-bOb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="X0d-Ya-bOb"/>
                                 <include reference="SEn-jQ-eVH"/>
                                 <include reference="gPg-a5-jwc"/>
                                 <include reference="dmR-HA-1RO"/>
@@ -144,7 +145,6 @@
                                 <include reference="nef-rN-BYc"/>
                                 <include reference="njU-sO-IZP"/>
                                 <include reference="Ese-XR-OHT"/>
-                                <include reference="X0d-Ya-bOb"/>
                             </mask>
                         </variation>
                     </view>

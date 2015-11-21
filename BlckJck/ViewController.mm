@@ -32,6 +32,7 @@
 
 @implementation ViewController
 
+//I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
 - (IBAction)hitMeButton:(id)sender {
     playerHand.Hit(deck.dealCard());
 //    _currentHandLabel.text = [NSString stringWithCString:playerHand.to_string().c_str() encoding:[NSString defaultCStringEncoding]];
@@ -87,7 +88,7 @@
 
     
     
-    //Allow the buttons to be hit again.
+    //Allow the buttons to be hit again. This is currently not working. Im still learning how the animation blocks work, but I think this likely has to be within a completion block.
     self.hitButton.enabled = true;
     self.holdButton.enabled = true;
 }
@@ -109,11 +110,23 @@
         image = [UIImage imageNamed:@"TieImage"];
     }
     
+    //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
     [UIView animateWithDuration:1.0
                      animations:^{
                          [self.winLoseImage setImage:image];
+                         [self.view bringSubviewToFront:self.winLoseImage];
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25);
-                     }];
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:1.0
+                                               delay:5.0 //This delay isnt working, but it is sending the view to the back, so idk.
+                                             options:UIViewAnimationCurveEaseOut
+                                          animations:^{
+                                              [self.view sendSubviewToBack:self.winLoseImage];
+                                          }
+                                          completion:nil];
+                     }
+     ];
     
 }
 - (void)viewDidLoad {
