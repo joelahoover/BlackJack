@@ -16,6 +16,7 @@
 @interface ViewController () {
     DeckOfCards deck;
     Hand playerHand;
+    Hand dealerHand;
 }
 @property (weak, nonatomic) IBOutlet UILabel *currentHandLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalHandLabel;
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *duckWing;
 @property (weak, nonatomic) IBOutlet UIButton *hitButton;
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
+@property (weak, nonatomic) IBOutlet UIImageView *winLoseImage;
 
 
 @end
@@ -93,6 +95,26 @@
 - (IBAction)holdButton:(id)sender {
     //_totalHandLabel.text = [NSString stringWithCString:playerHand.to_string().c_str() encoding:[NSString defaultCStringEncoding]];
     _totalHandLabel.text = [NSString stringWithFormat:@"%d", playerHand.getTotal() ];
+    
+    //Display a visual for whether you won (this should probably be a helper function. Not sure how to do that in Objective-C though.
+    UIImage *image;
+    if (playerHand.getTotal() > dealerHand.getTotal()) {
+        image = [UIImage imageNamed:@"WinDuck"];
+        
+    }
+    else if (playerHand.getTotal() < dealerHand.getTotal()) {
+        image = [UIImage imageNamed:@"LoseDuck"];
+    }
+    else {
+        image = [UIImage imageNamed:@"TieImage"];
+    }
+    
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         [self.winLoseImage setImage:image];
+                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25);
+                     }];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
