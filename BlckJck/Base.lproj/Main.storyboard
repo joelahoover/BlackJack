@@ -72,6 +72,12 @@
                                     <action selector="holdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVa-8f-jbu"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="138" y="204" width="25" height="40"/>
+                                </variation>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,16 +89,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="514" width="97" height="30"/>
+                                    <rect key="frame" x="16" y="514" width="107" height="30"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Hand:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.18703299819999999" green="0.75" blue="0.1780205477" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="22" y="518" width="83" height="21"/>
+                                    <rect key="frame" x="22" y="518" width="101" height="21"/>
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
@@ -107,12 +116,6 @@
                                     <rect key="frame" x="155" y="204" width="67" height="38"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="138" y="204" width="25" height="40"/>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -123,12 +126,12 @@
                                 <exclude reference="dmR-HA-1RO"/>
                                 <exclude reference="87o-01-poZ"/>
                                 <exclude reference="ESq-6g-vMh"/>
+                                <exclude reference="Nig-BU-3wu"/>
                                 <exclude reference="X0Q-WF-rHI"/>
                                 <exclude reference="nef-rN-BYc"/>
                                 <exclude reference="njU-sO-IZP"/>
                                 <exclude reference="Rll-zu-usT"/>
                                 <exclude reference="Ese-XR-OHT"/>
-                                <exclude reference="Nig-BU-3wu"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -139,12 +142,12 @@
                                 <include reference="dmR-HA-1RO"/>
                                 <include reference="87o-01-poZ"/>
                                 <include reference="ESq-6g-vMh"/>
+                                <include reference="Nig-BU-3wu"/>
                                 <include reference="X0Q-WF-rHI"/>
                                 <include reference="nef-rN-BYc"/>
                                 <include reference="njU-sO-IZP"/>
                                 <include reference="Rll-zu-usT"/>
                                 <include reference="Ese-XR-OHT"/>
-                                <include reference="Nig-BU-3wu"/>
                             </mask>
                         </variation>
                     </view>
@@ -157,6 +160,7 @@
                         <outlet property="holdButton" destination="ESq-6g-vMh" id="80D-hd-qap"/>
                         <outlet property="totalHandLabel" destination="87o-01-poZ" id="66L-Uc-Zgm"/>
                         <outlet property="winLoseImage" destination="X0d-Ya-bOb" id="VDc-J3-K7E"/>
+                        <outlet property="yourHandLabel" destination="njU-sO-IZP" id="fyi-fn-mON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
