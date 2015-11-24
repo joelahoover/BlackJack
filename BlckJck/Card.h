@@ -6,7 +6,7 @@
 #define CARD_H
 
 const static std::string faces [] = {"Ace", "Two","Three","Four","Five","Six","Seven", "Eight", "Nine", "Ten", "Jack","Queen","King"};
-static const std::string suits [] = {"Clubs", "Diamonds", "Hearts", "Spades"};
+static const std::string suits [] = {"Fox", "Elephant", "Giraffe", "Monkey"};
 
 class Card
 {
