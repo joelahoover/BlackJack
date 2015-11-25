@@ -19,7 +19,8 @@
     Hand playerHand;
     Hand dealerHand;
     
-    NSArray *nameArray;
+    NSMutableArray* playerHandImages;
+    UIImageView* prevCard;
 }
 @property (weak, nonatomic) IBOutlet UILabel *currentHandLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalHandLabel;
@@ -31,11 +32,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *hitButton;
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
 
-
-
 @end
 
 @implementation ViewController
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    deck.shuffle();
+}
 
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
 - (IBAction)hitMeButton:(id)sender {
@@ -48,22 +53,20 @@
     //Defining the location for the frontImage view to appear.
     CGRect cardFrontLoc = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
     UIImageView *iv = [[UIImageView alloc] initWithFrame:cardFrontLoc];
-    
+    [playerHandImages addObject:iv];
+    if(prevCard == nil) {
+        prevCard = iv;
+    }
     
     //Trying to fix the start point of the backFrame.
     self.cardBack.frame = CGRectMake(138, 204, 25, 40);
-   
-//    _currentHandLabel.text = [NSString stringWithCString:playerHand.to_string().c_str() encoding:[NSString defaultCStringEncoding]];
-    
-    //Array for testing. Will eventually be 52 strings long representing all of the images.
-    nameArray = @[@"AceFox", @"KingElephant", @"QueenMonkey", @"FiveGiraffe"];
     
     //Disable additional button input while animation is running.
     self.hitButton.enabled = false;
     self.holdButton.enabled = false;
     
     //Rotate the duck flipper and move the card.
-    [UIView animateWithDuration:1.1f
+    [UIView animateWithDuration:0.7f
                           delay:0.0f
                         options:(UIViewAnimationCurveEaseInOut)
                      animations:^{
@@ -74,13 +77,12 @@
                      }
                      completion:^(BOOL finished) {
                          //Return the duck wing to the original location and resize the back of the card view
-                         [UIView animateWithDuration:1.5f
+                         [UIView animateWithDuration:0.9f
                                           animations:^{
                                               
                                               self.duckWing.transform = CGAffineTransformIdentity;
                                               self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
                                             
-                                              
                                           }
                           completion:^(BOOL finished) {
                               //When the above is done reveal the front of the card. (The correct card image to load still needs to be done)
@@ -101,6 +103,7 @@
                               }
                               else
                                 iv.image = [UIImage imageNamed:@"KingElephant"];
+                              //iv.image = [UIImage imageNamed:[NSString stringWithCString:topCard.to_string().c_str() encoding:[NSString defaultCStringEncoding]]];
                               
                               
                               //Old way it worked. Just left it so if I need to go back to it.
@@ -111,30 +114,44 @@
                               //Rerturning the cardBack view to the top of the deck.
                               self.cardBack.frame = CGRectMake(138, 204, 25, 40);
                               
-                              [UIView animateWithDuration:1.0
-                                                    delay:0.6
+                              /*if(prevCard != nil) {
+                                  [UIView animateWithDuration:0.6
+                                                        delay:0.3
+                                                      options:UIViewAnimationCurveEaseOut
+                                                   animations:^{
+                                                       
+                                                       prevCard.frame = CGRectMake(25 + 60*(1 -1) , 353, 50, 80);
+                                                       
+                                                   }
+                                                   completion:nil
+                                   ];
+                              }*/
+                              [UIView animateWithDuration:0.6
+                                                    delay:0.3
                                                   options:UIViewAnimationCurveEaseOut
                                                animations:^{
-                                  //Move the dealt card to your hand.
-//                                  self.cardFront.frame = CGRectMake(25, 553, 50, 80);
                                                    
                                                    //Determines where each card should be put based on hand size.
                                                    unsigned long numCards = playerHand.myHand.size();
-                                                   iv.frame = CGRectMake(25 + 60*(numCards -1) , 553, 50, 80);
-                                  
-                              }
-                               completion:^(BOOL finished) {
-                                   
-                                   //Updates the text that displays your hand score
-                               _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
-                                   
-                                   
-                                   self.hitButton.enabled = true; //Allow further input
-                                   self.holdButton.enabled = true;
-                               }];
-                              
+                                                   iv.frame = CGRectMake(25 + 60*(numCards - 1) , 553, 50, 80);
+                                                   
+                                                   //for (int i=0; i<[playerHandImages count]-1; i++) {
+                                                   //UIImageView* card = [playerHandImages objectAtIndex:i];
+                                                   //iv.frame = CGRectMake(25 + 60*(1 -1) , 553, 50, 80);
+                                                   //}
+                                                   
+                                               }
+                                               completion:^(BOOL finished) {
+                                                   
+                                                   //Updates the text that displays your hand score
+                                                   _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
+                                                   
+                                                   
+                                                   self.hitButton.enabled = true; //Allow further input
+                                                   self.holdButton.enabled = true;
+                                               }];
                           }];
-                          }
+                     }
      
      ];
     
@@ -176,10 +193,6 @@
                      }
      ];
     
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    deck.shuffle();
 }
 
 - (void)didReceiveMemoryWarning {
