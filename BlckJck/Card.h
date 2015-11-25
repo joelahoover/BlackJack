@@ -22,10 +22,10 @@ public:
     }
     
     
-    std::string to_string()
+    std::string to_string() const
     {
         //output << faces[card.face] << " of " << suits[card.suit];
-        return faces[face] + std::string(" of ") + suits[suit];
+        return faces[face] + std::string(suits[suit]);
     }
 };
 
