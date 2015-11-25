@@ -20,25 +20,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-Ya-bOb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="282" width="240" height="128"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokerTable" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="28" width="400" height="752"/>
+                                </variation>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-a5-jwc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.752257070424318" green="0.98437709485369962" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="94" id="4vU-oT-HRN"/>
-                                </constraints>
                                 <state key="normal" title="Hit Me">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="4vU-oT-HRN"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="4vU-oT-HRN"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="201" y="428" width="170" height="53"/>
                                 </variation>
                                 <connections>
                                     <action selector="hitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfR-lE-ins"/>
@@ -50,6 +52,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="28" width="166" height="419"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87o-01-poZ">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -61,17 +66,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1ZS-eF-7kO"/>
-                                        <exclude reference="bKc-MT-EbM"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="1ZS-eF-7kO"/>
-                                        <include reference="bKc-MT-EbM"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="232" y="28" width="152" height="419"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESq-6g-vMh">
@@ -81,31 +77,64 @@
                                 <state key="normal" title="Hold">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="428" width="155" height="53"/>
+                                </variation>
                                 <connections>
                                     <action selector="holdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVa-8f-jbu"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="138" y="204" width="25" height="40"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="543" width="344" height="100"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="nef-rN-BYc">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="514" width="107" height="30"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.18703299819999999" green="0.75" blue="0.1780205477" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="22" y="518" width="101" height="21"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="188" y="326" width="25" height="40"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DuckWing" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-XR-OHT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="155" y="204" width="67" height="38"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dmR-HA-1RO" firstAttribute="firstBaseline" secondItem="87o-01-poZ" secondAttribute="firstBaseline" id="1UR-Vm-DgZ"/>
-                            <constraint firstItem="87o-01-poZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="3xl-gB-zrI"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ESq-6g-vMh" secondAttribute="bottom" constant="102" id="8Zt-5Q-Wyx"/>
-                            <constraint firstItem="ESq-6g-vMh" firstAttribute="trailing" secondItem="gPg-a5-jwc" secondAttribute="trailing" id="DpG-Be-ymu"/>
-                            <constraint firstItem="gPg-a5-jwc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HeQ-yw-khB"/>
-                            <constraint firstItem="gPg-a5-jwc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MTu-Zb-S6f"/>
-                            <constraint firstItem="gPg-a5-jwc" firstAttribute="leading" secondItem="dmR-HA-1RO" secondAttribute="leading" id="RJL-HX-ASj"/>
-                            <constraint firstItem="gPg-a5-jwc" firstAttribute="trailing" secondItem="87o-01-poZ" secondAttribute="trailing" id="SEy-Ca-vQb"/>
-                            <constraint firstItem="gPg-a5-jwc" firstAttribute="top" secondItem="87o-01-poZ" secondAttribute="bottom" constant="23" id="Tzr-qI-Zfk"/>
-                            <constraint firstAttribute="bottom" secondItem="gPg-a5-jwc" secondAttribute="bottom" constant="236" id="fwS-yW-f3B"/>
-                            <constraint firstItem="ESq-6g-vMh" firstAttribute="top" secondItem="gPg-a5-jwc" secondAttribute="bottom" constant="29" id="irP-mO-81t"/>
-                            <constraint firstItem="ESq-6g-vMh" firstAttribute="leading" secondItem="gPg-a5-jwc" secondAttribute="leading" id="k3q-rS-cKf"/>
-                            <constraint firstItem="87o-01-poZ" firstAttribute="leading" secondItem="dmR-HA-1RO" secondAttribute="trailing" constant="50" id="oZC-19-XC8"/>
-                            <constraint firstItem="dmR-HA-1RO" firstAttribute="baseline" secondItem="87o-01-poZ" secondAttribute="baseline" id="sEV-Gg-10F"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="X0d-Ya-bOb"/>
+                                <exclude reference="SEn-jQ-eVH"/>
                                 <exclude reference="gPg-a5-jwc"/>
                                 <exclude reference="dmR-HA-1RO"/>
                                 <exclude reference="87o-01-poZ"/>
@@ -130,6 +159,8 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="X0d-Ya-bOb"/>
+                                <include reference="SEn-jQ-eVH"/>
                                 <include reference="gPg-a5-jwc"/>
                                 <include reference="dmR-HA-1RO"/>
                                 <include reference="87o-01-poZ"/>
@@ -154,12 +185,26 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cardBack" destination="Nig-BU-3wu" id="I1h-jb-m8C"/>
+                        <outlet property="cardFront" destination="Rll-zu-usT" id="ljP-tK-zWg"/>
                         <outlet property="currentHandLabel" destination="dmR-HA-1RO" id="nQf-na-IO7"/>
+                        <outlet property="duckWing" destination="Ese-XR-OHT" id="md7-kg-N0E"/>
+                        <outlet property="hitButton" destination="gPg-a5-jwc" id="SfQ-TC-Mvc"/>
+                        <outlet property="holdButton" destination="ESq-6g-vMh" id="80D-hd-qap"/>
                         <outlet property="totalHandLabel" destination="87o-01-poZ" id="66L-Uc-Zgm"/>
+                        <outlet property="winLoseImage" destination="X0d-Ya-bOb" id="VDc-J3-K7E"/>
+                        <outlet property="yourHandLabel" destination="njU-sO-IZP" id="fyi-fn-mON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="AceSpades" width="100" height="130"/>
+        <image name="CardBack" width="2067" height="2789"/>
+        <image name="DuckWing" width="82" height="63"/>
+        <image name="PokerTable" width="630" height="396"/>
+        <image name="grey" width="1278" height="990"/>
+    </resources>
 </document>
