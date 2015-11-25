@@ -163,11 +163,11 @@
     
     //Display a visual for whether you won (this should probably be a helper function. Not sure how to do that in Objective-C though.
     UIImage *image;
-    if (playerHand.getTotal() > dealerHand.getTotal()) {
+    if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"WinDuck"];
         
     }
-    else if (playerHand.getTotal() < dealerHand.getTotal()) {
+    else if (playerHand.getTotal() < dealerHand.getTotal() || playerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"LoseDuck"];
     }
     else {
