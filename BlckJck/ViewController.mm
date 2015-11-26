@@ -14,6 +14,8 @@
 #import "DeckOfCards.h"
 #import "Hand.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface ViewController () {
     DeckOfCards deck;
     Hand playerHand;
@@ -31,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *winLoseImage;
 @property (weak, nonatomic) IBOutlet UIButton *hitButton;
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
+@property (weak, nonatomic) IBOutlet UIImageView *sizedBack;
 
 @end
 
@@ -40,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     deck.shuffle();
+    self.cardBack.transform = CGAffineTransformMakeRotation(.35);
 }
 
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
@@ -52,6 +56,7 @@
     
     //Defining the location for the frontImage view to appear.
     CGRect cardFrontLoc = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
+
     UIImageView *iv = [[UIImageView alloc] initWithFrame:cardFrontLoc];
     [playerHandImages addObject:iv];
     if(prevCard == nil) {
@@ -59,20 +64,27 @@
     }
     
     //Trying to fix the start point of the backFrame.
-    self.cardBack.frame = CGRectMake(138, 204, 25, 40);
+    self.cardBack.frame = CGRectMake(342, 264, 42, 72);
+    
     
     //Disable additional button input while animation is running.
     self.hitButton.enabled = false;
     self.holdButton.enabled = false;
     
     //Rotate the duck flipper and move the card.
-    [UIView animateWithDuration:0.7f
+    [UIView animateWithDuration:0.6f
                           delay:0.0f
                         options:(UIViewAnimationCurveEaseInOut)
                      animations:^{
-                         //Rotates wing then places the top card in the middle of the screen
-                         self.duckWing.transform = CGAffineTransformMakeRotation(M_PI/-2);
-                         self.cardBack.center  = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
+                         
+                         //Making a compound transformation. This is how you have to do it to rotate something around a point that isnt the center. This moves the center of the view to the rotation point, then rotates it, then translates the center back to the original.
+                         CGAffineTransform transform = CGAffineTransformMakeTranslation(-77.5, -15);
+                         transform = CGAffineTransformRotate(transform, M_PI/2);
+                         transform = CGAffineTransformTranslate(transform, 77.5, 15);
+                         self.duckWing.transform = transform;
+                         
+                         
+                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 + 15, self.view.bounds.size.height/2 + 140);
                          
                      }
                      completion:^(BOOL finished) {
@@ -81,7 +93,7 @@
                                           animations:^{
                                               
                                               self.duckWing.transform = CGAffineTransformIdentity;
-                                              self.cardBack.frame = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
+                                              self.sizedBack.frame = CGRectMake(self.view.bounds.size.width/2 - 35, self.view.bounds.size.height/2 - 80, 100, 160);
                                             
                                           }
                           completion:^(BOOL finished) {
@@ -133,7 +145,7 @@
                                                    
                                                    //Determines where each card should be put based on hand size.
                                                    unsigned long numCards = playerHand.myHand.size();
-                                                   iv.frame = CGRectMake(25 + 60*(numCards - 1) , 553, 50, 80);
+                                                   iv.frame = CGRectMake(16 + 60*(numCards - 1) , 507, 75, 100);
                                                    
                                                    //for (int i=0; i<[playerHandImages count]-1; i++) {
                                                    //UIImageView* card = [playerHandImages objectAtIndex:i];
@@ -168,7 +180,7 @@
         
     }
     else if (playerHand.getTotal() < dealerHand.getTotal() || playerHand.getTotal() > 21) {
-        image = [UIImage imageNamed:@"LoseDuck"];
+        image = [UIImage imageNamed:@"SadLoseDuck"];
     }
     else {
         image = [UIImage imageNamed:@"TieImage"];
@@ -179,7 +191,7 @@
                      animations:^{
                          [self.winLoseImage setImage:image]; //Assigning the correct image to the view
                          [self.view bringSubviewToFront:self.winLoseImage];
-                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25); //Animated size increase
+                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
                      }
                      completion:^(BOOL finished) {
                          [UIView animateWithDuration:0.0f
