@@ -49,11 +49,16 @@
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
 - (IBAction)hitMeButton:(id)sender {
     
+    //If the button is pressed while the hand is already over 21, EXIT NOWWWW
+    if (playerHand.getTotal() > 21){
+        [self displayWinLoseImage ];
+        return;
+        
+    } else {
     //Declaring a variable to hold the top card.
     Card topCard = deck.dealCard();
     playerHand.Hit(topCard);
-    
-    
+   
     //Defining the location for the frontImage view to appear.
     CGRect cardFrontLoc = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
 
@@ -162,19 +167,40 @@
                                                    
                                                    self.hitButton.enabled = true; //Allow further input
                                                    self.holdButton.enabled = true;
+                                                   
+                                                   if (playerHand.getTotal() > 21){
+                                                       [self displayWinLoseImage ];
+                                                       return;
+                                                   }
                                                }];
                           }];
                      }
      
      ];
-    
+        //Handle Dealers side of the story.
+        Card dealerCard = deck.dealCard();
+        dealerHand.Hit(dealerCard);
+        
+        if (dealerHand.getTotal() > 21){
+            [self displayWinLoseImage ];
+            return;
+        }
+        
+        
+    }
 }
 
 - (IBAction)holdButton:(id)sender {
     //_totalHandLabel.text = [NSString stringWithCString:playerHand.to_string().c_str() encoding:[NSString defaultCStringEncoding]];
     //_totalHandLabel.text = [NSString stringWithFormat:@"%d", playerHand.getTotal() ];
     
-    //Display a visual for whether you won (this should probably be a helper function. Not sure how to do that in Objective-C though.
+  
+    [self displayWinLoseImage];
+    
+}
+
+
+-(void) displayWinLoseImage{
     UIImage *image  = [UIImage new];
     if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"WinDuck"];
@@ -187,14 +213,14 @@
         image = [UIImage imageNamed:@"TieImage"];
     }
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
-
+    
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
     
     //Sends subview to back.
     void (^completion)(void) = ^{
         
         [self.view sendSubviewToBack:self.winLoseImage];
-
+        
     };
     
     [UIView animateWithDuration:1.0f
@@ -203,13 +229,12 @@
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                            [NSThread sleepForTimeInterval:2.0f];
+                         [NSThread sleepForTimeInterval:2.0f];
                          completion();
                      }
      ];
 
- 
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
