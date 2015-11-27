@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -18,64 +18,80 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-Ya-bOb">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="80" y="282" width="240" height="128"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokerTable" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interface" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="28" width="400" height="752"/>
+                                    <rect key="frame" x="0.0" y="-30" width="400" height="752"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-a5-jwc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.752257070424318" green="0.98437709485369962" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Hit Me">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SizedCard" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-aA-MtS">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="201" y="428" width="170" height="53"/>
+                                    <rect key="frame" x="328" y="249" width="72" height="98"/>
                                 </variation>
-                                <connections>
-                                    <action selector="hitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfR-lE-ins"/>
-                                </connections>
-                            </button>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DuckWingRight" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-XR-OHT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="164" y="303" width="203" height="86"/>
+                                </variation>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESq-6g-vMh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <color key="backgroundColor" red="1" green="0.6972538393814155" blue="0.63344162425070305" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Hold">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="428" width="155" height="53"/>
+                                    <rect key="frame" x="45" y="28" width="97" height="53"/>
                                 </variation>
                                 <connections>
                                     <action selector="holdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVa-8f-jbu"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="138" y="204" width="25" height="40"/>
+                                    <rect key="frame" x="334" y="252" width="42" height="72"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="543" width="344" height="100"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="nef-rN-BYc">
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="nef-rN-BYc">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="514" width="107" height="30"/>
+                                    <rect key="frame" x="16" y="461" width="107" height="30"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <animations/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -83,49 +99,49 @@
                                 <color key="textColor" red="0.18703299819999999" green="0.75" blue="0.1780205477" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="22" y="518" width="101" height="21"/>
+                                    <rect key="frame" x="22" y="465" width="101" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="188" y="326" width="25" height="40"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DuckWing" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-XR-OHT">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-a5-jwc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.752257070424318" green="0.98437709485369962" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Hit Me">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="155" y="204" width="67" height="38"/>
+                                    <rect key="frame" x="249" y="28" width="97" height="53"/>
                                 </variation>
-                            </imageView>
+                                <connections>
+                                    <action selector="hitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfR-lE-ins"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="X0d-Ya-bOb"/>
                                 <exclude reference="SEn-jQ-eVH"/>
-                                <exclude reference="gPg-a5-jwc"/>
+                                <exclude reference="ghM-aA-MtS"/>
                                 <exclude reference="ESq-6g-vMh"/>
-                                <exclude reference="Nig-BU-3wu"/>
-                                <exclude reference="X0Q-WF-rHI"/>
-                                <exclude reference="nef-rN-BYc"/>
-                                <exclude reference="njU-sO-IZP"/>
-                                <exclude reference="Rll-zu-usT"/>
-                                <exclude reference="Ese-XR-OHT"/>
+                                <exclude reference="gPg-a5-jwc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="X0d-Ya-bOb"/>
                                 <include reference="SEn-jQ-eVH"/>
-                                <include reference="gPg-a5-jwc"/>
+                                <include reference="ghM-aA-MtS"/>
                                 <include reference="ESq-6g-vMh"/>
-                                <include reference="Nig-BU-3wu"/>
-                                <include reference="X0Q-WF-rHI"/>
-                                <include reference="nef-rN-BYc"/>
-                                <include reference="njU-sO-IZP"/>
-                                <include reference="Rll-zu-usT"/>
-                                <include reference="Ese-XR-OHT"/>
+                                <include reference="gPg-a5-jwc"/>
                             </mask>
                         </variation>
                     </view>
@@ -135,6 +151,7 @@
                         <outlet property="duckWing" destination="Ese-XR-OHT" id="md7-kg-N0E"/>
                         <outlet property="hitButton" destination="gPg-a5-jwc" id="SfQ-TC-Mvc"/>
                         <outlet property="holdButton" destination="ESq-6g-vMh" id="80D-hd-qap"/>
+                        <outlet property="sizedBack" destination="ghM-aA-MtS" id="MrO-ju-g2r"/>
                         <outlet property="winLoseImage" destination="X0d-Ya-bOb" id="VDc-J3-K7E"/>
                         <outlet property="yourHandLabel" destination="njU-sO-IZP" id="fyi-fn-mON"/>
                     </connections>
@@ -146,8 +163,9 @@
     <resources>
         <image name="AceSpades" width="100" height="130"/>
         <image name="CardBack" width="2067" height="2789"/>
-        <image name="DuckWing" width="82" height="63"/>
-        <image name="PokerTable" width="630" height="396"/>
+        <image name="DuckWingRight" width="324" height="329"/>
+        <image name="SizedCard" width="135" height="156"/>
         <image name="grey" width="1278" height="990"/>
+        <image name="interface" width="825" height="1112"/>
     </resources>
 </document>
