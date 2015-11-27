@@ -175,7 +175,7 @@
     //_totalHandLabel.text = [NSString stringWithFormat:@"%d", playerHand.getTotal() ];
     
     //Display a visual for whether you won (this should probably be a helper function. Not sure how to do that in Objective-C though.
-    UIImage *image;
+    UIImage *image  = [UIImage new];
     if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"WinDuck"];
         
@@ -189,26 +189,22 @@
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
 
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
+    
+    //Sends subview to back.
     void (^completion)(void) = ^{
         
         [self.view sendSubviewToBack:self.winLoseImage];
 
     };
+    
     [UIView animateWithDuration:1.0f
                      animations:^{
                          [self.view bringSubviewToFront:self.winLoseImage];
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:6.0f
-                                               delay:0.0f
-                                             options:UIViewAnimationCurveEaseOut
-                                          animations:^{
-                                          }
-                                          completion:^(BOOL finished) {
-                                              completion();
-
-                                          }];
+                            [NSThread sleepForTimeInterval:2.0f];
+                         completion();
                      }
      ];
 
