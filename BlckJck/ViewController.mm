@@ -39,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     deck.shuffle();
+    playerHandImages = [NSMutableArray arrayWithObjects:nil];
 }
 
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
@@ -53,9 +54,7 @@
     CGRect cardFrontLoc = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
     UIImageView *iv = [[UIImageView alloc] initWithFrame:cardFrontLoc];
     [playerHandImages addObject:iv];
-    if(prevCard == nil) {
-        prevCard = iv;
-    }
+    NSLog(@"%@",playerHandImages);
     
     //Trying to fix the start point of the backFrame.
     self.cardBack.frame = CGRectMake(138, 204, 25, 40);
@@ -104,47 +103,25 @@
                                 iv.image = [UIImage imageNamed:@"KingElephant"];
                               //iv.image = [UIImage imageNamed:[NSString stringWithCString:topCard.to_string().c_str() encoding:[NSString defaultCStringEncoding]]];
                               
-                              
-                              //Old way it worked. Just left it so if I need to go back to it.
-                          
-//                              self.cardFront.frame = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
-//                              self.cardFront.alpha = 1;
-                              
                               //Rerturning the cardBack view to the top of the deck.
                               self.cardBack.frame = CGRectMake(138, 204, 25, 40);
-                              
-                              /*if(prevCard != nil) {
-                                  [UIView animateWithDuration:0.6
-                                                        delay:0.3
-                                                      options:UIViewAnimationCurveEaseOut
-                                                   animations:^{
-                                                       
-                                                       prevCard.frame = CGRectMake(25 + 60*(1 -1) , 353, 50, 80);
-                                                       
-                                                   }
-                                                   completion:nil
-                                   ];
-                              }*/
+
                               [UIView animateWithDuration:0.6
                                                     delay:0.3
                                                   options:UIViewAnimationCurveEaseOut
                                                animations:^{
                                                    
-                                                   //Determines where each card should be put based on hand size.
+                                                   //Determines where each card should be put based on the new hand size.
                                                    unsigned long numCards = playerHand.myHand.size();
-                                                   iv.frame = CGRectMake(25 + 60*(numCards - 1) , 553, 50, 80);
-                                                   
-                                                   //for (int i=0; i<[playerHandImages count]-1; i++) {
-                                                   //UIImageView* card = [playerHandImages objectAtIndex:i];
-                                                   //iv.frame = CGRectMake(25 + 60*(1 -1) , 553, 50, 80);
-                                                   //}
-                                                   
+                                                   for (int i=0; i<numCards; i++) {
+                                                       int newX = 25 + (self.view.bounds.size.width - 100) * i / ((numCards<=5)?4:numCards-1);
+                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 553, 50, 80);
+                                                   }
                                                }
                                                completion:^(BOOL finished) {
                                                    
                                                    //Updates the text that displays your hand score
                                                    _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
-                                                   
                                                    
                                                    self.hitButton.enabled = true; //Allow further input
                                                    self.holdButton.enabled = true;
