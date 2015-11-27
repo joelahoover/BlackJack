@@ -95,7 +95,7 @@
                               }
                               else if (topCard.suit == 2) {
                                   
-                                  iv.Image = [UIImage imageNamed:@"QueenMonkey"];
+                                  iv.image = [UIImage imageNamed:@"QueenMonkey"];
                               }
                               
                               else if (topCard.suit == 3) {
@@ -126,6 +126,7 @@
                                                    completion:nil
                                    ];
                               }*/
+                              
                               [UIView animateWithDuration:0.6
                                                     delay:0.3
                                                   options:UIViewAnimationCurveEaseOut
@@ -173,25 +174,33 @@
     else {
         image = [UIImage imageNamed:@"TieImage"];
     }
-    
+    [self.winLoseImage setImage:image]; //Assigning the correct image to the view
+
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
+    void (^completion)(void) = ^{
+        
+        [self.view sendSubviewToBack:self.winLoseImage];
+
+    };
     [UIView animateWithDuration:1.0f
                      animations:^{
-                         [self.winLoseImage setImage:image]; //Assigning the correct image to the view
                          [self.view bringSubviewToFront:self.winLoseImage];
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 1.25); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [UIView animateWithDuration:0.0f
-                                               delay:3.0f
+                         [UIView animateWithDuration:6.0f
+                                               delay:0.0f
                                              options:UIViewAnimationCurveEaseOut
                                           animations:^{
                                           }
                                           completion:^(BOOL finished) {
-                                                [self.view sendSubviewToBack:self.winLoseImage];
+                                              completion();
+
                                           }];
                      }
      ];
+
+ 
     
 }
 
