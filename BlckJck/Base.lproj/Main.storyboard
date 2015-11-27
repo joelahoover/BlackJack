@@ -125,6 +125,28 @@
                                     <action selector="hitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfR-lE-ins"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dealer : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKL-rf-eIR">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="244" y="461" width="145" height="30"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXc-OD-eeT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <color key="tintColor" red="0.73391047321766623" green="1" blue="0.04433125906394797" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="TRY Again"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="165" y="40" width="71" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="tryAgainButton_:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VD-G3-n6p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -135,6 +157,8 @@
                                 <exclude reference="ghM-aA-MtS"/>
                                 <exclude reference="ESq-6g-vMh"/>
                                 <exclude reference="gPg-a5-jwc"/>
+                                <exclude reference="tKL-rf-eIR"/>
+                                <exclude reference="kXc-OD-eeT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -144,22 +168,27 @@
                                 <include reference="ghM-aA-MtS"/>
                                 <include reference="ESq-6g-vMh"/>
                                 <include reference="gPg-a5-jwc"/>
+                                <include reference="tKL-rf-eIR"/>
+                                <include reference="kXc-OD-eeT"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="cardBack" destination="Nig-BU-3wu" id="I1h-jb-m8C"/>
                         <outlet property="cardFront" destination="Rll-zu-usT" id="ljP-tK-zWg"/>
+                        <outlet property="dealerHandLabel" destination="tKL-rf-eIR" id="zmd-BQ-98p"/>
                         <outlet property="duckWing" destination="Ese-XR-OHT" id="md7-kg-N0E"/>
                         <outlet property="hitButton" destination="gPg-a5-jwc" id="SfQ-TC-Mvc"/>
                         <outlet property="holdButton" destination="ESq-6g-vMh" id="80D-hd-qap"/>
                         <outlet property="sizedBack" destination="ghM-aA-MtS" id="MrO-ju-g2r"/>
+                        <outlet property="tryAgainButton" destination="kXc-OD-eeT" id="GDs-st-Eo7"/>
                         <outlet property="winLoseImage" destination="X0d-Ya-bOb" id="VDc-J3-K7E"/>
                         <outlet property="yourHandLabel" destination="njU-sO-IZP" id="fyi-fn-mON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="358.5" y="321.75"/>
         </scene>
     </scenes>
     <resources>

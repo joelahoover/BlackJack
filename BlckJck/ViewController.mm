@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *hitButton;
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
 @property (weak, nonatomic) IBOutlet UIImageView *sizedBack;
+@property (weak, nonatomic) IBOutlet UILabel *dealerHandLabel;
+@property (weak, nonatomic) IBOutlet UIButton *tryAgainButton;
 
 @end
 
@@ -169,7 +171,7 @@
         //Handle Dealers side of the story.
         Card dealerCard = deck.dealCard();
         dealerHand.Hit(dealerCard);
-        
+        _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
         if (dealerHand.getTotal() > 21){
             [self displayWinLoseImage ];
             return;
@@ -223,6 +225,11 @@
                      }
      ];
 
+
+}
+- (IBAction)tryAgainButton_:(id)sender {
+    
+    //REset Everything
 
 }
 
