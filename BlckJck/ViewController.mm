@@ -44,6 +44,7 @@
     [super viewDidLoad];
     deck.shuffle();
     playerHandImages = [NSMutableArray arrayWithObjects:nil];
+    self.cardBack.transform = CGAffineTransformMakeRotation(.35);
 }
 
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
@@ -126,8 +127,8 @@
                                                    //Determines where each card should be put based on the new hand size.
                                                    unsigned long numCards = playerHand.myHand.size();
                                                    for (int i=0; i<numCards; i++) {
-                                                       int newX = 25 + (self.view.bounds.size.width - 100) * i / ((numCards<=5)?4:numCards-1);
-                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 553, 50, 80);
+                                                       int newX = 17 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
+                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 510, 60, 96);
                                                    }
                                                }
                                                completion:^(BOOL finished) {
