@@ -14,6 +14,9 @@
 		3C12E7B51BFFFD7800FA2E2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C12E7B41BFFFD7800FA2E2E /* Images.xcassets */; };
 		3C12E7B81BFFFD7800FA2E2E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C12E7B61BFFFD7800FA2E2E /* LaunchScreen.xib */; };
 		3C12E7C41BFFFD7800FA2E2E /* BlckJckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C12E7C31BFFFD7800FA2E2E /* BlckJckTests.m */; };
+		3C8A99471C0938F300EF6D98 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A99461C0938F300EF6D98 /* Card.cpp */; };
+		3C8A994D1C0938FD00EF6D98 /* DeckOfCards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A99491C0938FD00EF6D98 /* DeckOfCards.cpp */; };
+		3C8A994E1C0938FD00EF6D98 /* Hand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A994B1C0938FD00EF6D98 /* Hand.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +43,12 @@
 		3C12E7BD1BFFFD7800FA2E2E /* BlckJckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlckJckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C12E7C21BFFFD7800FA2E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C12E7C31BFFFD7800FA2E2E /* BlckJckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlckJckTests.m; sourceTree = "<group>"; };
-		3C12E7CD1BFFFF2F00FA2E2E /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		3C12E7CE1BFFFF2F00FA2E2E /* DeckOfCards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeckOfCards.h; sourceTree = "<group>"; };
-		3C12E7CF1BFFFF2F00FA2E2E /* Hand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
+		3C8A99461C0938F300EF6D98 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
+		3C8A99481C0938FD00EF6D98 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		3C8A99491C0938FD00EF6D98 /* DeckOfCards.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeckOfCards.cpp; sourceTree = "<group>"; };
+		3C8A994A1C0938FD00EF6D98 /* DeckOfCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeckOfCards.h; sourceTree = "<group>"; };
+		3C8A994B1C0938FD00EF6D98 /* Hand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hand.cpp; sourceTree = "<group>"; };
+		3C8A994C1C0938FD00EF6D98 /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +94,12 @@
 				3C12E7AC1BFFFD7800FA2E2E /* AppDelegate.m */,
 				3C12E7AE1BFFFD7800FA2E2E /* ViewController.hh */,
 				3C12E7AF1BFFFD7800FA2E2E /* ViewController.mm */,
-				3C12E7CD1BFFFF2F00FA2E2E /* Card.h */,
-				3C12E7CE1BFFFF2F00FA2E2E /* DeckOfCards.h */,
-				3C12E7CF1BFFFF2F00FA2E2E /* Hand.h */,
+				3C8A99481C0938FD00EF6D98 /* Card.h */,
+				3C8A99461C0938F300EF6D98 /* Card.cpp */,
+				3C8A994A1C0938FD00EF6D98 /* DeckOfCards.h */,
+				3C8A99491C0938FD00EF6D98 /* DeckOfCards.cpp */,
+				3C8A994C1C0938FD00EF6D98 /* Hand.h */,
+				3C8A994B1C0938FD00EF6D98 /* Hand.cpp */,
 				3C12E7B11BFFFD7800FA2E2E /* Main.storyboard */,
 				3C12E7B41BFFFD7800FA2E2E /* Images.xcassets */,
 				3C12E7B61BFFFD7800FA2E2E /* LaunchScreen.xib */,
@@ -226,9 +235,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8A994E1C0938FD00EF6D98 /* Hand.cpp in Sources */,
 				3C12E7B01BFFFD7800FA2E2E /* ViewController.mm in Sources */,
 				3C12E7AD1BFFFD7800FA2E2E /* AppDelegate.m in Sources */,
+				3C8A994D1C0938FD00EF6D98 /* DeckOfCards.cpp in Sources */,
 				3C12E7AA1BFFFD7800FA2E2E /* main.m in Sources */,
+				3C8A99471C0938F300EF6D98 /* Card.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

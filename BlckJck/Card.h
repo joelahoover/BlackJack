@@ -5,9 +5,6 @@
 #ifndef CARD_H
 #define CARD_H
 
-const static std::string faces [] = {"Ace", "Two","Three","Four","Five","Six","Seven", "Eight", "Nine", "Ten", "Jack","Queen","King"};
-static const std::string suits [] = {"Fox", "Elephant", "Giraffe", "Monkey"};
-
 class Card
 {
 public: 
@@ -15,20 +12,9 @@ public:
 	int face;
 	int suit;
 
-    Card(int inFace, int inSuit)//Constructor for Card Class; initializing "face" and "suit"
-    {
-        face = inFace;
-        suit = inSuit;
-    }
+	Card(int, int);//Constructor for Card Class; initializing "face" and "suit"
     
     
-    std::string to_string() const
-    {
-        //output << faces[card.face] << " of " << suits[card.suit];
-        return faces[face] + std::string(suits[suit]);
-    }
+    std::string to_string() const;
 };
-
-// test Joel
-//testicle
 #endif
