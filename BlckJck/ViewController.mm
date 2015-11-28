@@ -54,9 +54,8 @@
     
     //If the button is pressed while the hand is already over 21, EXIT NOWWWW
     if (playerHand.getTotal() > 21){
-        [self displayWinLoseImage ];
+        [self displayWinLoseImage];
         return;
-        
     } else {
     //Declaring a variable to hold the top card.
     Card topCard = deck.dealCard();
@@ -70,7 +69,7 @@
     NSLog(@"%@",playerHandImages);
     
     //Trying to fix the start point of the backFrame.
-    self.cardBack.frame = CGRectMake(342, 264, 42, 72);
+    self.sizedBack.frame = CGRectMake(342, 264, 42, 72);
     
     
     //Disable additional button input while animation is running.
@@ -125,19 +124,6 @@
                               
                               //Rerturning the cardBack view to the top of the deck.
                               self.cardBack.frame = CGRectMake(138, 204, 25, 40);
-                              
-                              /*if(prevCard != nil) {
-                                  [UIView animateWithDuration:0.6
-                                                        delay:0.3
-                                                      options:UIViewAnimationCurveEaseOut
-                                                   animations:^{
-                                                       
-                                                       prevCard.frame = CGRectMake(25 + 60*(1 -1) , 353, 50, 80);
-                                                       
-                                                   }
-                                                   completion:nil
-                                   ];
-                              }*/
                               
                               [UIView animateWithDuration:0.6
                                                     delay:0.3
@@ -225,12 +211,32 @@
                      }
      ];
 
+    [self tryAgainButton_:nil];
 
 }
 - (IBAction)tryAgainButton_:(id)sender {
-    
-    //REset Everything
+    // Reset everything
 
+    [UIView animateWithDuration:0.9f
+                     animations:^{
+                         unsigned long numCards = playerHand.myHand.size();
+                         for (int i=0; i<numCards; i++) {
+                            int newX = 517 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
+                             ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 510, 60, 96);
+                         }
+                     }
+                     completion:nil
+                    ];
+
+    deck.repopulate();
+    deck.shuffle();
+    playerHand.clear();
+    dealerHand.clear();
+    playerHandImages = [NSMutableArray arrayWithObjects:nil];
+
+    //Updates the text that displays the hand scores
+    _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
+    _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
 }
 
 - (void)didReceiveMemoryWarning {

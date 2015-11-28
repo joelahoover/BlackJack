@@ -17,6 +17,8 @@ public:
 	DeckOfCards();
 
 	void shuffle();
+    
+    void repopulate();
 
 	Card dealCard();
 

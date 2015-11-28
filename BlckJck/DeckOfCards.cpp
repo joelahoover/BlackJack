@@ -18,6 +18,16 @@ DeckOfCards::DeckOfCards()//initialzing a full deck of cards
 	}
 }
 
+void DeckOfCards::repopulate() {
+    deck.clear();
+    
+    for(int s = 0; s < 4; s++){
+        for(int f = 0; f < 13; f++){
+            deck.push_back( Card(f, s) );
+        }
+    }
+}
+
 void DeckOfCards::shuffle()//shuffling deck by randomly going through a for loop,
 {						   //assigning every Nth element to a random spot
 	for(int c = 0; c < deck.size(); c++)

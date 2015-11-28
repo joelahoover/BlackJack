@@ -1,5 +1,6 @@
 //Hand.h in Blackjack
 
+#include <iostream>
 #include <vector>
 #include "Card.h"
 #include "Hand.h"
@@ -11,9 +12,11 @@ void Hand::Hit( Card _input )
 	validateHand();
 }
 
-void Hand::Hold()
+void Hand::clear()
 {
-	//does nothing
+    myHand.clear();
+    total = 0;
+    Blackjack = false;
 }
 
 

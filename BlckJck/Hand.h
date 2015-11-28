@@ -16,15 +16,16 @@ public:
 
 	std::vector<Card> myHand;
 
-	//player functions
+	// player functions
 	void Hit(Card);
 
-	void Hold();
+    // clear the player hand
+	void clear();
 
-	//helper functions
+	// helper functions
 	void validateHand();
 
-	//getters
+	// getters
 	int getTotal();
 
 	bool hasBlackjack();
