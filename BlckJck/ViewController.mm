@@ -89,7 +89,7 @@
                          self.duckWing.transform = transform;
                          
                          
-                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 + 15, self.view.bounds.size.height/2 + 140);
+                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 , self.view.bounds.size.height/2 );
                          
                      }
                      completion:^(BOOL finished) {
@@ -207,7 +207,9 @@
                      }
                      completion:^(BOOL finished) {
                          [NSThread sleepForTimeInterval:2.0f];
-                         completion();
+                         completion(
+                         //Clear out cards
+                         );
                      }
      ];
 
