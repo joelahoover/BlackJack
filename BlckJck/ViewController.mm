@@ -166,6 +166,7 @@
     else {
         image = [UIImage imageNamed:@"TieImage"];
     }
+    self.winLoseImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
     
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
@@ -175,7 +176,7 @@
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [NSThread sleepForTimeInterval:2.0f];
+                         [NSThread sleepForTimeInterval:0.7f];
                          [self.view sendSubviewToBack:self.winLoseImage];
                          [self tryAgain];
                      }
