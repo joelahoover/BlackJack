@@ -37,6 +37,7 @@ void DeckOfCards::shuffle()//shuffling deck by randomly going through a for loop
 		deck[u] = deck[c];
 		deck[c] = temp;
 	}
+    deck[51] = Card(0, 0);
 }
 
 Card DeckOfCards::dealCard()//a function that returns the last element of the vector

@@ -88,7 +88,7 @@
                          self.duckWing.transform = transform;
                          
                          
-                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 , self.view.bounds.size.height/2);
+                         self.sizedBack.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
                          
                      }
                      completion:^(BOOL finished) {
@@ -156,10 +156,9 @@
 -(void) displayWinLoseImage{
     UIImage *image  = [UIImage new];
     if(playerHand.hasBlackjack()) {
-        //image = [UIImage imageNamed:@"BlackDuck"];
-    } if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
+        image = [UIImage imageNamed:@"blackjack"];
+    } else if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"WinDuck"];
-        
     }
     else if (playerHand.getTotal() < dealerHand.getTotal() || playerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"SadLoseDuck"];
