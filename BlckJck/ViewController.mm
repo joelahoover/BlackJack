@@ -35,7 +35,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
 @property (weak, nonatomic) IBOutlet UIImageView *sizedBack;
 @property (weak, nonatomic) IBOutlet UILabel *dealerHandLabel;
-@property (weak, nonatomic) IBOutlet UIButton *tryAgainButton;
 
 @end
 
@@ -117,7 +116,7 @@
                                                                    unsigned long numCards = playerHand.myHand.size();
                                                                    for (int i=0; i<numCards; i++) {
                                                                        int newX = 17 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
-                                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 510, 60, 96);
+                                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 540, 60, 96);
                                                                    }
                                                                }
                                                                completion:^(BOOL finished) {
@@ -166,7 +165,7 @@
     else {
         image = [UIImage imageNamed:@"TieImage"];
     }
-    self.winLoseImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    self.winLoseImage.transform = CGAffineTransformIdentity;
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
     
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
@@ -193,7 +192,7 @@
     }];
 }
 
-- (IBAction)tryAgain {
+- (void)tryAgain {
     // Reset everything
 
     [UIView animateWithDuration:0.9f
