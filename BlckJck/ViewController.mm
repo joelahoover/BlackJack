@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cardBack;
 @property (weak, nonatomic) IBOutlet UIImageView *cardFront;
 @property (weak, nonatomic) IBOutlet UIImageView *duckWing;
-@property (weak, nonatomic) IBOutlet UIImageView *winLoseImage;
+@property (nonatomic) IBOutlet UIImageView *winLoseImage;
 @property (weak, nonatomic) IBOutlet UIButton *hitButton;
 @property (weak, nonatomic) IBOutlet UIButton *holdButton;
 @property (weak, nonatomic) IBOutlet UIImageView *sizedBack;
@@ -88,7 +88,7 @@
                          self.duckWing.transform = transform;
                          
                          
-                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 , self.view.bounds.size.height/2 );
+                         self.sizedBack.center  = CGPointMake(self.view.bounds.size.width/2 , self.view.bounds.size.height/2);
                          
                      }
                      completion:^(BOOL finished) {
@@ -165,14 +165,14 @@
     else {
         image = [UIImage imageNamed:@"TieImage"];
     }
-    self.winLoseImage.transform = CGAffineTransformIdentity;
+    self.winLoseImage.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 33, -20);//CGAffineTransformIdentity;
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
     
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
     [UIView animateWithDuration:1.0f
                      animations:^{
                          [self.view bringSubviewToFront:self.winLoseImage];
-                         self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
+                         self.winLoseImage.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(1.20, 2.0), 33, -20); //Animated size increase
                      }
                      completion:^(BOOL finished) {
                          [NSThread sleepForTimeInterval:0.7f];
