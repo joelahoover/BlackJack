@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -28,14 +27,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SizedCard" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-aA-MtS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="oBz-Xi-9PZ"/>
@@ -54,11 +53,11 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DuckWingRight" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-XR-OHT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="DuckWingRight" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-XR-OHT">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="203" id="49p-Ea-nwt"/>
@@ -101,7 +100,7 @@
                                     <action selector="holdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVa-8f-jbu"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="96" placeholderIntrinsicHeight="128" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-BU-3wu">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -118,21 +117,21 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-WF-rHI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="nef-rN-BYc">
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="grey" translatesAutoresizingMaskIntoConstraints="NO" id="nef-rN-BYc">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Hand: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-sO-IZP">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="D5T-mt-jG3"/>
@@ -154,7 +153,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="AceSpades" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-zu-usT">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -227,7 +226,7 @@
                                 <color key="tintColor" red="0.73391047321766623" green="1" blue="0.04433125906394797" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="TRY Again"/>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="150" y="40" width="91" height="30"/>
+                                    <rect key="frame" x="146" y="40" width="99" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="tryAgainButton_:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VD-G3-n6p"/>
@@ -300,13 +299,6 @@
                                 <exclude reference="kXc-OD-eeT"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="RUF-Gb-vIm"/>
-                                <exclude reference="wTI-Gz-k5P"/>
-                                <exclude reference="ykL-uS-hOL"/>
-                                <exclude reference="4Tm-FG-29X"/>
-                                <exclude reference="fkF-tA-NTq"/>
-                                <exclude reference="lvy-vB-PaI"/>
-                                <exclude reference="zXn-mB-rQ6"/>
                                 <exclude reference="3pJ-6k-2Hp"/>
                                 <exclude reference="ORs-tW-Y6w"/>
                                 <exclude reference="UHh-9Z-J03"/>
@@ -314,19 +306,22 @@
                                 <exclude reference="Z4Y-jF-gef"/>
                                 <exclude reference="cZX-9M-7bL"/>
                                 <exclude reference="giw-cg-abA"/>
-                                <exclude reference="tEk-zf-LMA"/>
-                                <exclude reference="wjz-zG-iB3"/>
-                                <exclude reference="Dxp-0R-9pb"/>
-                                <exclude reference="Zhm-Me-1Wj"/>
-                                <exclude reference="e2y-Zj-Ogs"/>
-                                <exclude reference="q3P-8h-hCA"/>
+                                <exclude reference="RUF-Gb-vIm"/>
+                                <exclude reference="wTI-Gz-k5P"/>
+                                <exclude reference="ykL-uS-hOL"/>
                                 <exclude reference="Cmd-qB-6Dh"/>
                                 <exclude reference="IO3-RK-0D2"/>
                                 <exclude reference="MXr-Vv-QLM"/>
                                 <exclude reference="Tgo-8e-bM8"/>
+                                <exclude reference="Dxp-0R-9pb"/>
+                                <exclude reference="Zhm-Me-1Wj"/>
+                                <exclude reference="e2y-Zj-Ogs"/>
+                                <exclude reference="q3P-8h-hCA"/>
                                 <exclude reference="RK6-sl-K7V"/>
                                 <exclude reference="ary-qn-3gN"/>
                                 <exclude reference="qii-2s-142"/>
+                                <exclude reference="V0m-iO-XsF"/>
+                                <exclude reference="a0m-ER-i3s"/>
                                 <exclude reference="JoJ-kZ-hXC"/>
                                 <exclude reference="Wnt-f1-JRE"/>
                                 <exclude reference="lDM-3h-pUM"/>
@@ -334,13 +329,17 @@
                                 <exclude reference="SjO-Ul-DuC"/>
                                 <exclude reference="pLh-2H-WLb"/>
                                 <exclude reference="pkc-je-bai"/>
+                                <exclude reference="Cat-ww-LBf"/>
+                                <exclude reference="tEk-zf-LMA"/>
+                                <exclude reference="wjz-zG-iB3"/>
+                                <exclude reference="4Tm-FG-29X"/>
+                                <exclude reference="fkF-tA-NTq"/>
+                                <exclude reference="lvy-vB-PaI"/>
+                                <exclude reference="zXn-mB-rQ6"/>
                                 <exclude reference="5cc-E0-jiD"/>
                                 <exclude reference="9aH-rP-eWb"/>
                                 <exclude reference="b0g-jU-OYk"/>
                                 <exclude reference="gdZ-FF-NG1"/>
-                                <exclude reference="V0m-iO-XsF"/>
-                                <exclude reference="a0m-ER-i3s"/>
-                                <exclude reference="Cat-ww-LBf"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -354,13 +353,6 @@
                                 <include reference="kXc-OD-eeT"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="RUF-Gb-vIm"/>
-                                <include reference="wTI-Gz-k5P"/>
-                                <include reference="ykL-uS-hOL"/>
-                                <include reference="4Tm-FG-29X"/>
-                                <include reference="fkF-tA-NTq"/>
-                                <include reference="lvy-vB-PaI"/>
-                                <include reference="zXn-mB-rQ6"/>
                                 <include reference="3pJ-6k-2Hp"/>
                                 <include reference="ORs-tW-Y6w"/>
                                 <include reference="UHh-9Z-J03"/>
@@ -368,19 +360,22 @@
                                 <include reference="Z4Y-jF-gef"/>
                                 <include reference="cZX-9M-7bL"/>
                                 <include reference="giw-cg-abA"/>
-                                <include reference="tEk-zf-LMA"/>
-                                <include reference="wjz-zG-iB3"/>
-                                <include reference="Dxp-0R-9pb"/>
-                                <include reference="Zhm-Me-1Wj"/>
-                                <include reference="e2y-Zj-Ogs"/>
-                                <include reference="q3P-8h-hCA"/>
+                                <include reference="RUF-Gb-vIm"/>
+                                <include reference="wTI-Gz-k5P"/>
+                                <include reference="ykL-uS-hOL"/>
                                 <include reference="Cmd-qB-6Dh"/>
                                 <include reference="IO3-RK-0D2"/>
                                 <include reference="MXr-Vv-QLM"/>
                                 <include reference="Tgo-8e-bM8"/>
+                                <include reference="Dxp-0R-9pb"/>
+                                <include reference="Zhm-Me-1Wj"/>
+                                <include reference="e2y-Zj-Ogs"/>
+                                <include reference="q3P-8h-hCA"/>
                                 <include reference="RK6-sl-K7V"/>
                                 <include reference="ary-qn-3gN"/>
                                 <include reference="qii-2s-142"/>
+                                <include reference="V0m-iO-XsF"/>
+                                <include reference="a0m-ER-i3s"/>
                                 <include reference="JoJ-kZ-hXC"/>
                                 <include reference="Wnt-f1-JRE"/>
                                 <include reference="lDM-3h-pUM"/>
@@ -388,13 +383,17 @@
                                 <include reference="SjO-Ul-DuC"/>
                                 <include reference="pLh-2H-WLb"/>
                                 <include reference="pkc-je-bai"/>
+                                <include reference="Cat-ww-LBf"/>
+                                <include reference="tEk-zf-LMA"/>
+                                <include reference="wjz-zG-iB3"/>
+                                <include reference="4Tm-FG-29X"/>
+                                <include reference="fkF-tA-NTq"/>
+                                <include reference="lvy-vB-PaI"/>
+                                <include reference="zXn-mB-rQ6"/>
                                 <include reference="5cc-E0-jiD"/>
                                 <include reference="9aH-rP-eWb"/>
                                 <include reference="b0g-jU-OYk"/>
                                 <include reference="gdZ-FF-NG1"/>
-                                <include reference="V0m-iO-XsF"/>
-                                <include reference="a0m-ER-i3s"/>
-                                <include reference="Cat-ww-LBf"/>
                             </mask>
                         </variation>
                     </view>
