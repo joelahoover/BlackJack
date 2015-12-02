@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -23,18 +24,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interface" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naked interface.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SizedCard" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-aA-MtS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="oBz-Xi-9PZ"/>
@@ -57,7 +58,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="203" id="49p-Ea-nwt"/>
@@ -91,7 +92,8 @@
                                         <exclude reference="9gX-im-ctf"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="45" y="28" width="97" height="35"/>
                                     <mask key="constraints">
                                         <include reference="9gX-im-ctf"/>
                                     </mask>
@@ -131,7 +133,7 @@
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="D5T-mt-jG3"/>
@@ -225,8 +227,8 @@
                                 <animations/>
                                 <color key="tintColor" red="0.73391047321766623" green="1" blue="0.04433125906394797" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="TRY Again"/>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="146" y="40" width="99" height="30"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="40" width="91" height="36"/>
                                 </variation>
                                 <connections>
                                     <action selector="tryAgainButton_:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VD-G3-n6p"/>
@@ -266,7 +268,9 @@
                             <constraint firstItem="Nig-BU-3wu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="252" id="ary-qn-3gN"/>
                             <constraint firstItem="tKL-rf-eIR" firstAttribute="top" secondItem="nef-rN-BYc" secondAttribute="top" id="b0g-jU-OYk"/>
                             <constraint firstItem="gPg-a5-jwc" firstAttribute="baseline" secondItem="ESq-6g-vMh" secondAttribute="baseline" id="cZX-9M-7bL"/>
-                            <constraint firstItem="Ese-XR-OHT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="303" id="e2y-Zj-Ogs"/>
+                            <constraint firstItem="Ese-XR-OHT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="303" id="e2y-Zj-Ogs">
+                                <variation key="heightClass=regular-widthClass=compact" constant="270"/>
+                            </constraint>
                             <constraint firstItem="kXc-OD-eeT" firstAttribute="centerX" secondItem="SEn-jQ-eVH" secondAttribute="centerX" id="fkF-tA-NTq">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-4.5"/>
                             </constraint>
@@ -421,6 +425,6 @@
         <image name="DuckWingRight" width="324" height="329"/>
         <image name="SizedCard" width="135" height="156"/>
         <image name="grey" width="1278" height="990"/>
-        <image name="interface" width="825" height="1112"/>
+        <image name="naked interface.png" width="825" height="1044"/>
     </resources>
 </document>
