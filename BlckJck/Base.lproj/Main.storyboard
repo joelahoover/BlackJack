@@ -26,7 +26,7 @@
                                     <rect key="frame" x="80" y="249" width="240" height="128"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naked interface.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="naked interface-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEn-jQ-eVH">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration">
@@ -384,6 +384,6 @@
         <image name="DuckWingRight" width="324" height="329"/>
         <image name="SizedCard" width="135" height="156"/>
         <image name="grey" width="1278" height="990"/>
-        <image name="naked interface.png" width="825" height="1044"/>
+        <image name="naked interface-2.png" width="825" height="1044"/>
     </resources>
 </document>
