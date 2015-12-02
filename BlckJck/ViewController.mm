@@ -47,10 +47,17 @@
     deck.shuffle();
     playerHandImages = [NSMutableArray arrayWithObjects:nil];
     self.cardBack.transform = CGAffineTransformMakeRotation(.35);
+    
+    [self redeal];
 }
 
-//I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
 - (IBAction)hitMeButton:(id)sender {
+    [self dealPlayer:^{
+        [self checkDeal];
+    }];
+}
+
+-(void) dealPlayer:(void(^)(void))callback {
     //Declaring a variable to hold the top card.
     Card topCard = deck.dealCard();
     playerHand.Hit(topCard);
@@ -60,7 +67,6 @@
     
     UIImageView *iv = [[UIImageView alloc] initWithFrame:cardFrontLoc];
     [playerHandImages addObject:iv];
-    NSLog(@"%@",playerHandImages);
     
     //Trying to fix the start point of the backFrame.
     self.sizedBack.frame = CGRectMake(342, 264, 42, 72);
@@ -121,7 +127,7 @@
                                                                    self.hitButton.enabled = true; //Allow further input
                                                                    self.holdButton.enabled = true;
                                                                    
-                                                                   [self checkDeal];
+                                                                   callback();
                                                                }];
                                           }];
                      }
@@ -160,26 +166,31 @@
     else {
         image = [UIImage imageNamed:@"TieImage"];
     }
+    self.winLoseImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
     [self.winLoseImage setImage:image]; //Assigning the correct image to the view
     
     //Assigning the correct image to the view that shows the result, then brings it to the front and animates its resizing.
-    
-    //Sends subview to back.
-    void (^completion)(void) = ^{
-        [self.view sendSubviewToBack:self.winLoseImage];
-    };
-    
     [UIView animateWithDuration:1.0f
                      animations:^{
                          [self.view bringSubviewToFront:self.winLoseImage];
                          self.winLoseImage.transform = CGAffineTransformMakeScale(1.25, 2.0); //Animated size increase
                      }
                      completion:^(BOOL finished) {
-                         [NSThread sleepForTimeInterval:2.0f];
-                         completion();
+                         [NSThread sleepForTimeInterval:0.7f];
+                         [self.view sendSubviewToBack:self.winLoseImage];
                          [self tryAgain];
                      }
      ];
+}
+
+- (void)redeal {
+    [self dealPlayer:^{
+        [self dealPlayer:^{
+            [self checkDeal];
+            dealerHand.Hit(deck.dealCard());
+            _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
+        }];
+    }];
 }
 
 - (IBAction)tryAgain {
@@ -205,6 +216,8 @@
     //Updates the text that displays the hand scores
     _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
     _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
+
+    [self redeal];
 }
 
 - (void)didReceiveMemoryWarning {
