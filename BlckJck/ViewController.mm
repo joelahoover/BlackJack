@@ -51,19 +51,13 @@
 
 //I cannot for the life of me seem to get the completion blocks working, so if anyone knows how to do that let me know (kyle)
 - (IBAction)hitMeButton:(id)sender {
-    
-    //If the button is pressed while the hand is already over 21, EXIT NOWWWW
-    if (playerHand.getTotal() > 21){
-        [self displayWinLoseImage];
-        return;
-    } else {
     //Declaring a variable to hold the top card.
     Card topCard = deck.dealCard();
     playerHand.Hit(topCard);
-   
+    
     //Defining the location for the frontImage view to appear.
     CGRect cardFrontLoc = CGRectMake(self.view.bounds.size.width/2 - 50, self.view.bounds.size.height/2 - 80, 100, 160);
-
+    
     UIImageView *iv = [[UIImageView alloc] initWithFrame:cardFrontLoc];
     [playerHandImages addObject:iv];
     NSLog(@"%@",playerHandImages);
@@ -99,78 +93,55 @@
                                               
                                               self.duckWing.transform = CGAffineTransformIdentity;
                                               self.sizedBack.frame = CGRectMake(self.view.bounds.size.width/2 - 35, self.view.bounds.size.height/2 - 80, 100, 160);
-                                            
+                                              
                                           }
-                          completion:^(BOOL finished) {
-                              //When the above is done reveal the front of the card. (The correct card image to load still needs to be done)
-                              
-                              //This will be replaced with a call to the array based on a parameter unique to each card. For now it just assigns an image based on the suit.
-                              [self.view addSubview:iv];
-                              
-                              if (topCard.suit == 1) {
-                                  iv.image = [UIImage imageNamed:@"AceFox"];
-                              }
-                              else if (topCard.suit == 2) {
-                                  
-                                  iv.image = [UIImage imageNamed:@"QueenMonkey"];
-                              }
-                              
-                              else if (topCard.suit == 3) {
-                                  iv.image = [UIImage imageNamed:@"FiveGiraffe"];
-                              }
-                              else
-                                iv.image = [UIImage imageNamed:@"KingElephant"];
-                              //iv.image = [UIImage imageNamed:[NSString stringWithCString:topCard.to_string().c_str() encoding:[NSString defaultCStringEncoding]]];
-                              
-                              //Rerturning the cardBack view to the top of the deck.
-                              self.cardBack.frame = CGRectMake(138, 204, 25, 40);
-                              
-                              [UIView animateWithDuration:0.6
-                                                    delay:0.3
-                                                  options:UIViewAnimationCurveEaseOut
-                                               animations:^{
-                                                   
-                                                   //Determines where each card should be put based on the new hand size.
-                                                   unsigned long numCards = playerHand.myHand.size();
-                                                   for (int i=0; i<numCards; i++) {
-                                                       int newX = 17 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
-                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 510, 60, 96);
-                                                   }
-                                               }
-                                               completion:^(BOOL finished) {
-                                                   
-                                                   //Updates the text that displays your hand score
-                                                   _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
-                                                   
-                                                   self.hitButton.enabled = true; //Allow further input
-                                                   self.holdButton.enabled = true;
-                                                   
-                                                   if (playerHand.getTotal() > 21){
-                                                       [self displayWinLoseImage ];
-                                                       return;
-                                                   }
-                                               }];
-                          }];
+                                          completion:^(BOOL finished) {
+                                              // Reveal the front of the card
+                                              [self.view addSubview:iv];
+                                              iv.image = [UIImage imageNamed:[NSString stringWithCString:topCard.to_string().c_str() encoding:[NSString defaultCStringEncoding]]];
+                                              
+                                              //Return the cardBack view to the top of the deck.
+                                              self.cardBack.frame = CGRectMake(138, 204, 25, 40);
+                                              
+                                              [UIView animateWithDuration:0.6
+                                                                    delay:0.3
+                                                                  options:UIViewAnimationCurveEaseOut
+                                                               animations:^{
+                                                                   //Determines where each card should be put based on the new hand size.
+                                                                   unsigned long numCards = playerHand.myHand.size();
+                                                                   for (int i=0; i<numCards; i++) {
+                                                                       int newX = 17 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
+                                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 510, 60, 96);
+                                                                   }
+                                                               }
+                                                               completion:^(BOOL finished) {
+                                                                   //Updates the text that displays your hand score
+                                                                   _yourHandLabel.text = [@"Your Hand: " stringByAppendingString:[NSString stringWithFormat:@"%i", playerHand.getTotal()]];
+                                                                   
+                                                                   self.hitButton.enabled = true; //Allow further input
+                                                                   self.holdButton.enabled = true;
+                                                                   
+                                                                   [self checkDeal];
+                                                               }];
+                                          }];
                      }
-     
      ];
-        //Handle Dealers side of the story.
-        Card dealerCard = deck.dealCard();
-        dealerHand.Hit(dealerCard);
-        _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
-        if (dealerHand.getTotal() > 21){
-            [self displayWinLoseImage ];
-            return;
-        }
-        
-        
+}
+
+-(void) checkDeal {
+    // Check if a player has busted
+    if (playerHand.getTotal() > 21){
+        [self displayWinLoseImage];
+        return;
     }
 }
 
 - (IBAction)holdButton:(id)sender {
-    //_totalHandLabel.text = [NSString stringWithCString:playerHand.to_string().c_str() encoding:[NSString defaultCStringEncoding]];
-    //_totalHandLabel.text = [NSString stringWithFormat:@"%d", playerHand.getTotal() ];
-    
+    while(dealerHand.getTotal() < 17) {
+        Card topCard = deck.dealCard();
+        dealerHand.Hit(topCard);
+        _dealerHandLabel.text = [@"Dealer: " stringByAppendingString:[NSString stringWithFormat:@"%i", dealerHand.getTotal()]];
+    }
   
     [self displayWinLoseImage];
     
@@ -195,9 +166,7 @@
     
     //Sends subview to back.
     void (^completion)(void) = ^{
-        
         [self.view sendSubviewToBack:self.winLoseImage];
-        
     };
     
     [UIView animateWithDuration:1.0f
@@ -207,16 +176,13 @@
                      }
                      completion:^(BOOL finished) {
                          [NSThread sleepForTimeInterval:2.0f];
-                         completion(
-                         //Clear out cards
-                         );
+                         completion();
+                         [self tryAgain];
                      }
      ];
-
-    [self tryAgainButton_:nil];
-
 }
-- (IBAction)tryAgainButton_:(id)sender {
+
+- (IBAction)tryAgain {
     // Reset everything
 
     [UIView animateWithDuration:0.9f
