@@ -115,8 +115,8 @@
                                                                    //Determines where each card should be put based on the new hand size.
                                                                    unsigned long numCards = playerHand.myHand.size();
                                                                    for (int i=0; i<numCards; i++) {
-                                                                       int newX = 17 + (self.view.bounds.size.width - 92) * i / ((numCards<=5)?4:numCards-1);
-                                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 540, 60, 96);
+                                                                       int newX = 17 + (self.view.bounds.size.width - 110) * i / ((numCards<=4)?3:numCards-1);
+                                                                       ((UIImageView*)[playerHandImages objectAtIndex:i]).frame = CGRectMake(newX, 500, 80, 128);
                                                                    }
                                                                }
                                                                completion:^(BOOL finished) {
@@ -155,7 +155,9 @@
 
 -(void) displayWinLoseImage{
     UIImage *image  = [UIImage new];
-    if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
+    if(playerHand.hasBlackjack()) {
+        //image = [UIImage imageNamed:@"BlackDuck"];
+    } if ((playerHand.getTotal() > dealerHand.getTotal() && playerHand.getTotal() <= 21) || dealerHand.getTotal() > 21) {
         image = [UIImage imageNamed:@"WinDuck"];
         
     }
